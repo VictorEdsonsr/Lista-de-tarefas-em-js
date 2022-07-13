@@ -1,0 +1,90 @@
+/*FONTS*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/*GLOBAL*/
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 96vh;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  background-color: rgb(34, 183, 195);
+}
+
+/*MAIN*/
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  background-color: rgb(14, 56, 59);
+  width: 100%;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+h1 {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 630px;
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+
+#formulario {
+  padding: 20px;
+}
+
+#formulario input {
+  background-color: transparent;
+  border-bottom: solid 1px rgb(34, 183, 195);
+  border-radius: 0;
+  outline: none;
+}
+
+button {
+  background: rgb(34, 183, 195);
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: transform 1s;
+  transform: translateX(0) scale(1);
+}
+
+button:hover {
+  background: rgb(19, 70, 74);
+  transform: translateX(5px) scale(1.2);
+}
+
+.tarefas {
+  width: 70%;
+  text-align: start;
+}
+.tarefas li {
+  list-style: none;
+  margin: 8px;
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 5px 7px;
+}
