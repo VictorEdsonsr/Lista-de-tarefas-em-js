@@ -13,6 +13,7 @@ adicionar.addEventListener("click", (e) => {
 input.addEventListener("keypress", (e) => {
   if (e.keyCode === 13) {
     if (!input.value) return;
+    criaTarefa(input.value);
   }
 
   return;
@@ -24,6 +25,7 @@ const criaTarefa = (texto) => {
   tarefas.appendChild(li);
   limpaInput();
   botaoApagar(li);
+  salvarTarefa();
 
   return;
 };
@@ -47,5 +49,31 @@ document.addEventListener("click", (e) => {
   const elemento = e.target;
   if (elemento.classList.contains("apagar")) {
     elemento.parentElement.remove();
+    salvarTarefa();
   }
 });
+
+const salvarTarefa = () => {
+  const listaTarefas = tarefas.querySelectorAll("li");
+  const listaDeTarefas = [];
+
+  for (let tarefa of listaTarefas) {
+    let tarefaTexto = tarefa.innerText;
+    tarefaTexto = tarefaTexto.replace("apagar", " ").trim();
+    listaDeTarefas.push(tarefaTexto);
+  }
+
+  const tarefasJSON = JSON.stringify(listaDeTarefas);
+  localStorage.setItem("tarefas", tarefasJSON);
+};
+
+const recarregaTarefas = () => {
+  const tarefas = localStorage.getItem("tarefas");
+  const listaDeTarefas = JSON.parse(tarefas);
+
+  for (let tarefa of listaDeTarefas) {
+    criaTarefa(tarefa);
+  }
+};
+
+recarregaTarefas();
